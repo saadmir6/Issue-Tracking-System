@@ -1,0 +1,18 @@
+<clr-datagrid>
+    <clr-dg-column [clrDgField] = "'issueNo'" [clrDgColType] = "'number'">
+        Issue No
+    </clr-dg-column>
+    <clr-dg-column [ClrDgField] = "'type'"> Type </clr-dg-column>
+    <clr-dg-column [ClrDgField] = "'title'"> Title </clr-dg-column>
+    <clr-dg-column [ClrDgField] = "'description'"> Description </clr-dg-column>
+    <clr-dg-column [ClrDgField] = "'priority'"> Priority </clr-dg-column>
+     <clr-dg-row *clrDgItems="let issue of issues">  <!--  A LOOP -->
+        <clr-dg-cell>{{issue.issueNo}}</clr-dg-cell>
+        <clr-dg-cell>{{issue.type}}</clr-dg-cell>
+        <clr-dg-cell>{{issue.title}}</clr-dg-cell>
+        <clr-dg-cell>{{issue.description}}</clr-dg-cell>
+        <clr-dg-cell> <span class="label" [class.label-danger] = "issue.priority === 'high'">{{issue.priority}}</span> </clr-dg-cell>
+        <!-- IF THE PRIORIT IS EQUAL TO HIGH THEN THE LABEL SIGH DISPLAYS DANGER -->
+    </clr-dg-row>
+    <clr-dg-footer> {{issue.length}} issues </clr-dg-footer>
+</clr-datagrid>
