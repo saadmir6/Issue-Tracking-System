@@ -14,4 +14,9 @@ export class IssuesService {
     return this.issues.filter(issue => !issue.completed) //THE ISSUE PROPERTY IN THE FILTER IS SELF DECLARED
                                                          // GET THE ISSUES WHICH ARE NOT COMPLETED 
   }
+
+  createIssue(issue : Issue) {
+    issue.IssueNo = this.issues.length + 1;
+    this.issues.push(issue);
+  }
 }
