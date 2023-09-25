@@ -23,7 +23,7 @@ export class IssueListComponent implements OnInit {
     this.issues = this.issueService.getPedingIssues();
   }
 
-  onClose() {
+  onCloseReport() {
     this.showReportIssue = false;
     this.getIssues;
   }
