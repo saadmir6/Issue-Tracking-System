@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup, Validator, Validators} from '@angular/forms';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Issue } from '../issue';
 import { IssuesService } from '../issues.service';
 
@@ -16,7 +16,7 @@ interface IssueForm {
   styleUrls: ['./issue-report.component.css']
 })
 
-export class IssueReportComponent {
+export class IssueReportComponent implements OnInit {
 
   issueForm = new FormGroup<IssueForm>({
 
@@ -27,9 +27,16 @@ export class IssueReportComponent {
 
   });
 
+  suggestions: Issue[] = [];
+
   @Output() formClose = new EventEmitter();
 
   constructor(private issueService : IssuesService) {}
+  ngOnInit(): void {
+    this.issueForm.controls.title.valueChanges.subscribe(title => {
+      this.suggestions = this.issueService.getSuggestions(title)
+    })
+  };
   
   addIssue() {
     if (this.issueForm && this.issueForm.invalid) {
@@ -38,5 +45,5 @@ export class IssueReportComponent {
     }
     this.issueService.createIssue(this.issueForm.getRawValue() as Issue);
     this.formClose.emit();
-  }
+  };
 }
