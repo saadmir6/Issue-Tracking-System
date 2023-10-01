@@ -1,1 +1,17 @@
-<p>confirm-dialog works!</p>
+<clr-modal [clrModalOpen]="IssueNo !== null" [clrModalClosable]="false">
+    <h3 class="model-title">
+        Resolve Issue #
+        {{IssueNo}}
+    </h3>
+    <div class="model-body">
+        <p>Are you sure you wan tot close this issue?</p>
+    </div>
+    <div class="model-footer">
+        <button type="button" class="btn btn-outline" (click)="disagree()">
+            Cancel
+        </button>
+        <button type="button" class="btn btn-danger" (click)="agree()">
+            Yes continue
+        </button>
+    </div>
+</clr-modal>

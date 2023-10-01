@@ -19,4 +19,14 @@ export class IssuesService {
     issue.IssueNo = this.issues.length + 1;
     this.issues.push(issue);
   }
+
+  completedIssue(issue : Issue) {
+    const selectedIssue : Issue = {
+      ...issue,  // OPEN THE ISSUE AND ADD THE CURRENT DATE
+      completed : new Date()
+    };
+    const index = this.issues.findIndex(i => i === issue);
+    this.issues[index] = selectedIssue;
+
+  }
 }
