@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { IssueReportComponent } from './issue-report/issue-report.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-// import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +15,12 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     IssueListComponent,
     IssueReportComponent,
     ConfirmDialogComponent,
-    // ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
     ClarityModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

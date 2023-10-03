@@ -9,7 +9,7 @@ import { Issue } from '../issue';
 })
 export class IssueListComponent implements OnInit {
 
-  issues : Issue[] = []
+  issues : Issue[] = [];
 
   showReportIssue = false;
 
@@ -27,7 +27,7 @@ export class IssueListComponent implements OnInit {
 
   onCloseReport() {
     this.showReportIssue = false;
-    this.getIssues;
+    this.getIssues();
   }
 
   onConfirm(confirmed : boolean) {
